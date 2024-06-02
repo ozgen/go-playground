@@ -1,0 +1,54 @@
+# Binaries for programs and plugins
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Output of the go coverage tool, specifically when used with LiteIDE
+*.out
+
+# Application files
+*.log
+
+# Dependency directories
+vendor/
+Godeps/
+
+# Go workspace
+# If you are using a monorepo, you can comment out the line below
+# otherwise uncomment it to ignore the entire workspace
+# */**
+
+# Go build artifacts
+*.a
+*.o
+*.so
+
+# Project local glide cache, REPLACE_PROJECT_NAME with your project name
+REPLACE_PROJECT_NAME
+
+# IDEs and editors
+.vscode/
+.idea/
+*.swp
+*~
+*.sublime-project
+*.sublime-workspace
+.DS_Store
+
+# Node modules (if you're using JavaScript with Go)
+node_modules/
+
+# VS Code settings and extensions
+.vscode/
+
+# JetBrains IDEs (IntelliJ IDEA, GoLand)
+.idea/
+*.iml
+
+# Mac OS specific
+.DS_Store
+
+# Other specific to your OS
+Thumbs.db
