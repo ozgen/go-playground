@@ -5,6 +5,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"os"
+	"time"
 )
 
 type FileManager struct {
@@ -21,12 +22,16 @@ func New(inputFilePath, outputFilePath string) FileManager {
 
 func (manager FileManager) ReadLines() ([]string, error) {
 	file, err := os.Open(manager.InputFilePath)
-
 	if err != nil {
 		fmt.Println("File can not be opened!")
 		fmt.Println(err)
+		//file.Close()
 		return nil, err
 	}
+
+	// we can use defer command to close the file in correct time rather than adding close method to all edge cases
+	// because it triggers when the outer function is DONE.
+	defer file.Close()
 
 	scanner := bufio.NewScanner(file)
 
@@ -38,9 +43,10 @@ func (manager FileManager) ReadLines() ([]string, error) {
 	err = scanner.Err()
 
 	if err != nil {
-		file.Close()
+		//file.Close()
 		return nil, err
 	}
+	//file.Close()
 	return lines, nil
 }
 
@@ -48,15 +54,23 @@ func (manager FileManager) ReadLines() ([]string, error) {
 func (manager FileManager) WriteJSON(data interface{}) error {
 	file, err := os.Create(manager.OutputFilePath)
 	if err != nil {
-		file.Close()
+		//file.Close()
 		return err
 	}
+
+	// we can use defer command to close the file in correct time rather than adding close method to all edge cases
+	// because it triggers when the outer function is DONE.
+	defer file.Close()
+
+	time.Sleep(3 * time.Second) // simulate a slow, long-taking task
+
 	encoder := json.NewEncoder(file)
 
 	err = encoder.Encode(data)
 	if err != nil {
-		file.Close()
+		//file.Close()
 		return err
 	}
+	//file.Close()
 	return nil
 }

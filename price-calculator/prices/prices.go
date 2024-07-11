@@ -16,25 +16,29 @@ type TaxIncludedPriceJob struct {
 }
 
 // we need to set as pointer because we want to update existing jobs inputPrices
-func (job *TaxIncludedPriceJob) LoadData() {
+func (job *TaxIncludedPriceJob) LoadData() error {
 	lines, err := job.IOManager.ReadLines()
 	if err != nil {
 		fmt.Println("Could not read the file!")
 		fmt.Println(err)
-		return
+		return err
 	}
 	prices, err := conversion.StringsToFloats(lines)
 	if err != nil {
 		fmt.Println("value could not be parsed to float64")
 		fmt.Println(err)
-		return
+		return err
 	}
 	job.InputPrices = prices
+	return nil
 }
 
-func (job TaxIncludedPriceJob) Process() {
+func (job TaxIncludedPriceJob) Process(doneChan chan bool, errChan chan error) {
 
-	job.LoadData()
+	err := job.LoadData()
+	if err != nil {
+		errChan <- err
+	}
 	result := make(map[string]string)
 
 	for _, price := range job.InputPrices {
@@ -44,6 +48,7 @@ func (job TaxIncludedPriceJob) Process() {
 	fmt.Println(result)
 	job.TaxIncludedPrices = result
 	job.IOManager.WriteJSON(job)
+	doneChan <- true
 }
 
 func NewTaxIncludedPriceJob(iom iomanager.IOManager, taxRate float64) *TaxIncludedPriceJob {
