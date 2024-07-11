@@ -26,7 +26,7 @@ Here's a breakdown of what you'll find in this repository:
             - [Card Handling Example](/cards)
             - [Basic Banking Application](/bank/bank.go)
             - [Investment Calculator](/investment-calculator/investment_calculator.go)
-            - [Price Calculator (includes interface, working with packages, function examples)](/price-calculator)
+            - [Price Calculator (includes interface, working with packages, function, goroutines and channel examples)](/price-calculator)
 - **Working with Packages**
     - [Examples](/workingWithPackages)
 - **Advanced Data Handling**
@@ -44,6 +44,7 @@ Here's a breakdown of what you'll find in this repository:
         - [Map Operations](/listsOfData/maps.go)
         - [Maps Examples](/map/main.go)
 - **Concurrency**
+    - [Goroutines Usage Example](/goroutines/main.go)
     - [Channel Usage Example](/channels/main.go)
 
 ## Installation Instructions

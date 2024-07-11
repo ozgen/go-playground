@@ -22,11 +22,23 @@ func main() {
 	//}
 
 	//fmt.Println(result)
-
-	for _, taxRate := range taxRates {
+	doneChans := make([]chan bool, len(taxRates))
+	errorChans := make([]chan error, len(taxRates))
+	for i, taxRate := range taxRates {
 		fileManager := filemanager.New(prices.Prices_File, fmt.Sprintf("result_%.0f.json", taxRate*100))
 		//cmdManager := cmdmanager.New()
+		doneChans[i] = make(chan bool)
+		errorChans[i] = make(chan error)
 		job := prices.NewTaxIncludedPriceJob(fileManager, taxRate)
-		job.Process()
+		go job.Process(doneChans[i], errorChans[i])
+	}
+
+	for i := range taxRates {
+		select {
+		case err := <-errorChans[i]:
+			fmt.Println(err)
+		case <-doneChans[i]:
+			fmt.Println("Done!")
+		}
 	}
 }
