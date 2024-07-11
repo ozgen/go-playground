@@ -1,0 +1,49 @@
+# Go Playground
+
+## Project Description
+Welcome to the Go Playground! This repository is a collection of Go language examples and experiments, showcasing a range of features and techniques in Go programming. It aims to help developers better understand and utilize the Go language effectively.
+
+## Directory Structure
+Here's a breakdown of what you'll find in this repository:
+
+- **Hello World**
+  - [Hello World Example](/helloworld/main.go)
+- **Go Essentials**
+  - [Basic Banking Application](/bank/bank.go)
+  - Projects:
+    - [Card Handling Example](/cards)
+    - [Investment Calculator](/investment-calculator/investment_calculator.go)
+- **Working with Packages**
+  - [Examples](/workingWithPackages)
+- **Advanced Data Handling**
+  - **Pointers**
+    - [Pointer Examples](/pointers/pointers.go)
+  - **Structs**
+    - [Basic Structs Usage](/structs)
+    - [More Structs Examples](/struct/main.go)
+  - **Interfaces**
+    - [Deep Dive into Interfaces](/interfaces-in-depth)
+    - [Additional Interface Examples](/interfaces)
+- **Collections**
+  - **Lists and Maps**
+    - [List Operations](/listsOfData/lists.go)
+    - [Map Operations](/listsOfData/maps.go)
+    - [Maps Examples](/map/main.go)
+- **Concurrency**
+  - [Channel Usage Example](/channels/main.go)
+
+## Installation Instructions
+To set up this project locally, follow these steps:
+
+```bash
+git clone https://github.com/ozgen/go-playground.git
+cd go-playground
+```
+
+## Usage
+To run any of the included Go programs, navigate into the corresponding directory and execute the Go file. For example:
+
+```bash
+cd helloworld
+go run main.go
+```
