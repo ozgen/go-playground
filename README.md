@@ -3,6 +3,9 @@
 ## Project Description
 Welcome to the Go Playground! This repository is a collection of Go language examples and experiments, showcasing a range of features and techniques in Go programming. It aims to help developers better understand and utilize the Go language effectively.
 
+## Prerequisites
+- **Go Version**: This repository requires [Go 1.22.0](https://golang.org/dl/) or higher. Make sure you have the correct version installed to run the examples provided.
+
 ## Directory Structure
 Here's a breakdown of what you'll find in this repository:
 
