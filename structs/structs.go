@@ -34,7 +34,7 @@ func main() {
 	adminUser.ClearUsername()
 	adminUser.OutputUserDetails()
 
-	//in order to overrite string type adding a new method
+	//in order to override string type adding a new method
 	// you can use like that
 	var test str = "test message"
 	test.log()
