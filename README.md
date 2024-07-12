@@ -46,6 +46,8 @@ Here's a breakdown of what you'll find in this repository:
 - **Concurrency**
     - [Goroutines Usage Example](/goroutines/main.go)
     - [Channel Usage Example](/channels/main.go)
+- **sample Rest Api**
+    - [Sample Rest API with using Gin Framework](/sample-rest-api)
 
 ## Installation Instructions
 
